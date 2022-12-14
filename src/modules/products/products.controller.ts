@@ -19,7 +19,7 @@ import { ProductDto } from './dto/product.dto';
 import { Product as ProductEntity } from './product.entity';
 import { CustomValidationPipe } from '../../core/pipes/validate.pipe';
 import { AuthGuard } from '@nestjs/passport';
-import { verifyToken } from '../../core/guards/verifyToken.guard';
+import { verifyAdmin } from '../../core/guards/verifyAdmin.guard';
 
 @Controller('products')
 export class ProductsController {
@@ -59,7 +59,7 @@ export class ProductsController {
   }
 
   @UsePipes(new CustomValidationPipe())
-  @UseGuards(AuthGuard('jwt'), verifyToken)
+  @UseGuards(AuthGuard('jwt'), verifyAdmin)
   @Put(':id')
   async updateProduct(@Param('id') id: number, @Body() product: ProductDto): Promise<ProductEntity> {
     return await this.productsService.update(id, product);

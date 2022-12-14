@@ -13,9 +13,6 @@ export class Order extends Model<Order> {
 
   @BelongsTo(() => User)
   user: User;
-  //
-  // @HasMany(() => Product)
-  // products: Product[];
 
   @Column({
     type: DataType.STRING,
@@ -40,4 +37,7 @@ export class Order extends Model<Order> {
     defaultValue: 'Pending'
   })
   status: string
+  //
+  // @HasMany(() => Product)
+  // products: Product[]
 }

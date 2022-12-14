@@ -5,7 +5,7 @@ import { UsersService } from '../../modules/users/users.service';
 import { JwtStrategy } from '../../modules/auth/jwt.strategy';
 
 @Injectable()
-export class verifyToken implements CanActivate {
+export class verifyAdmin implements CanActivate {
   //constructor(private readonly jwtStrategy: JwtStrategy) {}
 
   canActivate(

@@ -1,4 +1,4 @@
-import { Table, Column, Model, DataType } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, HasMany } from 'sequelize-typescript';
 
 @Table
 export class User extends Model<User> {
@@ -33,4 +33,7 @@ export class User extends Model<User> {
     defaultValue: false
   })
   isAdmin: boolean
+
+  // @HasMany(() => Cart)
+  // cart: Cart[]
 }

@@ -1,5 +1,7 @@
-import { Table, Column, Model, DataType, ForeignKey, BelongsTo } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, ForeignKey, BelongsTo, HasMany } from 'sequelize-typescript';
 import { User } from '../users/user.entity';
+import { Order } from '../orders/order.entity';
+// import { Cart } from '../carts/cart.entity';
 
 @Table
 export class Product extends Model<Product> {
@@ -26,4 +28,18 @@ export class Product extends Model<Product> {
     allowNull: false,
   })
   img: string;
+  //
+  // @ForeignKey(() => Order)
+  // @Column
+  // orderId: number;
+  //
+  // @BelongsTo(() => Order)
+  // order: Order;
+  //
+  // @ForeignKey(() => Order)
+  // @Column
+  // cartId: number;
+  //
+  // @BelongsTo(() => Cart)
+  // cart: Cart;
 }
